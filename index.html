@@ -83,19 +83,53 @@
         // Variables
         var num1 = [];
         var num2 = [];
+        var number = false;
         var op;
         var result;
         $(document).ready(function () {
             // Event handler for clicking a number button
             $(".number").on("click", function () {
                 // Get a digit and add it to the number
-                var tempNum = $(this).val();
-                num1.push(tempNum);
-                var strNum = num1.join("");
-                num = parseInt(strNum);
-                console.log("Num1: " + num);
+                if (number == false) {
+                    var tempNum = $(this).val();
+                    num1.push(tempNum);
+                    var strNum = num1.join("");
+                    num = parseInt(strNum);
+                    console.log("Num1: " + num);
+                    $("#first-number").empty();
+                    $("#first-number").append(num1);
+                }
+                else {
+                    var tempNum = $(this).val();
+                    num2.push(tempNum);
+                    var strNum = num2.join("");
+                    num = parseInt(strNum);
+                    console.log("Num2: " + num);
+                    $("#second-number").empty();
+                    $("#second-number").append(num2);
+                }
+
+
+
+
             });
+            $(".operator").on("click", function () {
+                // Gets operator
+                var op = $(this).val();
+                var op1;
+                if (op!="equals") {
+                    number = true;
+                    op1=op;
+                }
+
+                console.log("Operator: " + op);
+                if (op == "equals") {
+                    
+                }
+
+            })
         });
+
 
     </script>
 
